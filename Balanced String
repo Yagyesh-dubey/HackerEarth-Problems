@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+     
+     stack<char>st;
+
+     string s;
+     getline(cin,s);
+
+     for(char i:s)
+     {
+        if(i=='('||i=='{'||i=='[') st.push(i);
+        else 
+        {
+            if(i==']')
+            {
+                if(st.top()=='[')st.pop();
+            }
+            if(i==')')
+            {
+                if(st.top()=='(')st.pop();
+            }
+            if(i=='}')
+            {
+                if(st.top()=='{')st.pop();
+            }
+        }
+     }
+
+     if(st.empty())cout<<"Balanced";
+     else cout<<"Not Balanced";
+    
+  return 0;
+}
